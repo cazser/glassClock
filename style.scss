@@ -1,0 +1,138 @@
+:root{
+	--primary: #6d5dfc;
+	--white: #FFFFFF;
+	--grayLight-1: #E4EBF5;
+	--grayLight-2: #c8d0e7;
+	--grayLight-3: #bec8e4;
+	--greyDark: #9baacf;
+	}
+	*, *::before, *::after{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+$shadow: 
+	.3rem .3rem .6rem var(--grayLight-2),
+	-.2rem -.2rem .5rem var(--white);
+
+$inner-shadow: 
+	inset .2rem .2rem .5rem var(--grayLight-2),
+	inset -.2rem -.2rem .5rem var(--white);
+$little-inner-shadow: 
+	inset 1px 1px 1px var(--grayLight-2),
+	inset -1px -1px 1px var(--white);
+
+.container{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--grayLight-1);
+}
+
+.clock{
+	width: 12rem;
+	height: 12rem;
+	border-radius: 50%;
+	box-shadow: $shadow;	
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+
+	.hours{
+		width: .4rem;
+		height: 3.2rem;
+		background: var(--grayLight-3);
+	}
+
+	.minutes{
+		width: .4rem;
+		height: 4.6rem;
+		background: var(--greyDark);
+	}
+
+	.seconds{
+		width: .2rem;
+		height: 5.2rem;
+		background: var(--primary);
+	}
+
+	.hand{
+		position:absolute;
+		bottom: 6rem;
+		border-radius: .2rem;
+		transform-origin: bottom;
+		z-index: 1;
+	}
+
+	.hours{
+		transform: rotate(180deg);
+	}
+
+	.minutes{
+		transform: rotate(90deg);
+	}
+	.point{
+		position: absolute;
+		width: .8rem;
+		height: .8rem;
+		border-radius: 50%;
+		background: var(--primary);
+		z-index: 2;
+	}
+
+	.marker{
+		width: 11.5rem;
+		height: 11.5rem;
+		box-shadow: $inner-shadow;
+		border-radius: 50%;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&::after{
+			content: '';
+			position:absolute;
+			border-radius: 50%;
+			width: 7rem;
+			height: 7rem;
+			box-shadow: $little-inner-shadow;
+		}
+
+		&_1, &_2, &_3, &_4{
+			position: absolute;
+			box-shadow: $little-inner-shadow;
+		}
+
+		&_1{
+			width: 0.2rem;
+			height: 0.6rem;
+			left: 5.65rem;
+			top: 0.2rem;
+		}
+
+		&_2{
+			width: 0.2rem;
+			height: 0.6rem;
+			left: 5.65rem;
+			top: 10.8rem;
+		}
+
+		&_3{
+			width: 0.2rem;
+			height: 0.6rem;
+			left: 0.2rem;
+			top: 5.6rem;
+		}
+
+		&_4{
+			width: 0.2rem;
+			height: 0.6rem;
+			left: 10.8rem;
+			top: 5.65rem;
+		}
+	}	
+}
